@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -30,6 +33,16 @@ public class AplikasiPenghitungKata extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        LabeTotallKata = new javax.swing.JLabel();
+        LabelTotalKarakter = new javax.swing.JLabel();
+        LabelTotalKalimat = new javax.swing.JLabel();
+        LabelTotalParagraf = new javax.swing.JLabel();
+        CariKata = new javax.swing.JTextField();
+        LabelCariKata = new javax.swing.JLabel();
+        TombolCari = new javax.swing.JButton();
+        TombolKeluar = new javax.swing.JButton();
+        TombolSimpan = new javax.swing.JButton();
+        TombolHitung = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -41,23 +54,92 @@ public class AplikasiPenghitungKata extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
+        LabeTotallKata.setText("Total Kata : ");
+
+        LabelTotalKarakter.setText("Total Karakter : ");
+
+        LabelTotalKalimat.setText("Total Kalimat : ");
+
+        LabelTotalParagraf.setText("Total Paragraf : ");
+
+        LabelCariKata.setText("Cari Kata");
+
+        TombolCari.setText("Cari");
+        TombolCari.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TombolCariActionPerformed(evt);
+            }
+        });
+
+        TombolKeluar.setText("Keluar");
+
+        TombolSimpan.setText("Simpan");
+        TombolSimpan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TombolSimpanActionPerformed(evt);
+            }
+        });
+
+        TombolHitung.setText("Hitung");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(LabeTotallKata)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(LabelCariKata)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(CariKata, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(TombolCari))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(TombolKeluar))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(LabelTotalKarakter)
+                            .addComponent(LabelTotalKalimat)
+                            .addComponent(LabelTotalParagraf)
+                            .addComponent(TombolHitung))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(250, 250, 250)
+                .addComponent(TombolSimpan)
+                .addContainerGap(262, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 251, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LabeTotallKata)
+                    .addComponent(CariKata, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LabelCariKata)
+                    .addComponent(TombolCari))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(LabelTotalKarakter)
+                .addGap(15, 15, 15)
+                .addComponent(LabelTotalKalimat)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(LabelTotalParagraf)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(TombolHitung)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(TombolSimpan)
+                .addGap(44, 44, 44)
+                .addComponent(TombolKeluar)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -79,6 +161,40 @@ public class AplikasiPenghitungKata extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void TombolCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TombolCariActionPerformed
+        // TODO add your handling code here:
+        String kataDicari = fieldCari.getText().trim();
+        String isiTeks = txtArea.getText();
+
+        // Mengecek apakah input kata dan teks tidak kosong
+        if (kataDicari.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Masukkan kata yang ingin dicari.", "Peringatan", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        if (isiTeks.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Teks tidak boleh kosong. Masukkan teks terlebih dahulu.", "Peringatan", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        // Menghitung jumlah kemunculan kata
+        String[] kataArray = isiTeks.split("\\s+");
+        int jumlahKemunculan = 0;
+        for (String kata : kataArray) {
+            if (kata.equalsIgnoreCase(kataDicari)) {
+                jumlahKemunculan++;
+            }
+        }
+
+        // Menampilkan hasil
+        JOptionPane.showMessageDialog(this, "Kemunculan '" + kataDicari + "': " + jumlahKemunculan);
+    }                                       
+    }//GEN-LAST:event_TombolCariActionPerformed
+
+    private void TombolSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TombolSimpanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TombolSimpanActionPerformed
 
     /**
      * @param args the command line arguments
@@ -116,6 +232,16 @@ public class AplikasiPenghitungKata extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField CariKata;
+    private javax.swing.JLabel LabeTotallKata;
+    private javax.swing.JLabel LabelCariKata;
+    private javax.swing.JLabel LabelTotalKalimat;
+    private javax.swing.JLabel LabelTotalKarakter;
+    private javax.swing.JLabel LabelTotalParagraf;
+    private javax.swing.JButton TombolCari;
+    private javax.swing.JButton TombolHitung;
+    private javax.swing.JButton TombolKeluar;
+    private javax.swing.JButton TombolSimpan;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
